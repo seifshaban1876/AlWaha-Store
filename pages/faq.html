@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأسئلة الشائعة - الواحة</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="الأسئلة الشائعة لمتجر الواحة - إجابات على أكثر الأسئلة شيوعاً عن المنتجات والتوصيل والدفع" />
+    <meta name="keywords" content="أسئلة, إجابات, شائعة, FAQ, الواحة" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    
+    <style>
+        .page-container {
+            max-width: 900px;
+            margin: 100px auto 40px;
+            padding: 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+        .page-container h1 {
+            font-size: 36px;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .page-container .subtitle {
+            text-align: center;
+            color: #5a7a5a;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item .question {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            padding: 4px 0;
+        }
+        .faq-item .question:hover {
+            color: var(--gold);
+        }
+        .faq-item .question i {
+            transition: var(--transition);
+            color: var(--gold);
+        }
+        .faq-item .question .fa-chevron-down {
+            display: inline-block;
+        }
+        .faq-item .question .fa-chevron-up {
+            display: none;
+        }
+        .faq-item.open .question .fa-chevron-down {
+            display: none;
+        }
+        .faq-item.open .question .fa-chevron-up {
+            display: inline-block;
+        }
+        .faq-item .answer {
+            display: none;
+            padding-top: 10px;
+            color: var(--text-color);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .faq-item.open .answer {
+            display: block;
+        }
+        .faq-search {
+            margin-bottom: 20px;
+        }
+        .faq-search input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(26,92,58,0.08);
+            border-radius: 30px;
+            font-size: 15px;
+            font-family: 'Tajawal', sans-serif;
+            background: rgba(255,255,255,0.3);
+            transition: var(--transition);
+            color: var(--text-color);
+        }
+        .faq-search input:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+        .back-link:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+        @media (max-width: 768px) {
+            .page-container { margin: 80px 10px 20px; padding: 15px; }
+            .page-container h1 { font-size: 28px; }
+        }
+        @media (max-width: 480px) {
+            .page-container h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="header-actions">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="ابحث..." />
+            </div>
+        </div>
+        <div class="logo">
+            <a href="../index.html" style="text-decoration:none;">
+                <div class="arabic">الواحة 🌱</div>
+            </a>
+        </div>
+        <div class="header-actions">
+            <button class="theme-toggle" onclick="document.documentElement.toggleAttribute('data-theme')" title="تبديل المظهر">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="../index.html" class="admin-link" title="الرجوع للمتجر">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== PAGE CONTENT ===== -->
+    <div class="page-container">
+        <h1>❓ الأسئلة الشائعة</h1>
+        <p class="subtitle">إجابات على أكثر الأسئلة شيوعاً</p>
+
+        <!-- البحث -->
+        <div class="faq-search">
+            <input type="text" id="faqSearch" placeholder="ابحث عن سؤال..." oninput="searchFaq()" />
+        </div>
+
+        <!-- الأسئلة -->
+        <div id="faqList">
+
+            <!-- سؤال 1 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>ما هي أوقات التوصيل المتاحة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نوفر خدمة التوصيل طوال أيام الأسبوع من الساعة 8 صباحاً حتى 10 مساءً. يمكنك اختيار وقت التوصيل المناسب لك أثناء تأكيد الطلب. نقدم أيضاً خدمة التوصيل السريع خلال ساعة للطلبات العاجلة.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 2 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>كيف يمكنني تتبع طلبي؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>بعد تأكيد طلبك، ستتلقى رسالة تأكيد عبر واتساب تحتوي على رقم التتبع. يمكنك أيضاً التواصل مع فريق الدعم عبر واتساب للحصول على تحديثات حول حالة طلبك.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 3 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>ما هي طرق الدفع المتاحة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نوفر عدة طرق دفع لتتناسب مع تفضيلاتك:</p>
+                    <ul style="padding-right:20px;margin-top:6px;">
+                        <li>• الدفع عند الاستلام (كاش)</li>
+                        <li>• إنستا باي</li>
+                        <li>• المحفظة الإلكترونية</li>
+                        <li>• التحويل البنكي</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- سؤال 4 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>هل يمكنني إرجاع المنتجات؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نعم، يمكنك إرجاع المنتجات خلال 24 ساعة من الاستلام بشرط أن تكون في حالتها الأصلية. يتم استرداد المبلغ خلال 3-5 أيام عمل. للمنتجات الغذائية، نقبل الإرجاع فقط في حالة وجود عيب في المنتج.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 5 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>هل المنتجات طازجة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نعم، جميع منتجاتنا طازجة 100%. نتعامل مباشرة مع المزارع لضمان وصول المنتجات إليك في نفس اليوم الذي يتم قطافها فيه. نضمن لك جودة ونضارة كل منتج.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 6 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>ما هي قيمة التوصيل؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>قيمة التوصيل تتراوح بين 15ج إلى 30ج حسب المسافة. التوصيل مجاني للطلبات التي تتجاوز 200 ج.م. يمكنك معرفة قيمة التوصيل الدقيقة عند تأكيد الطلب.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 7 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>كيف يمكنني التواصل مع الدعم الفني؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>يمكنك التواصل معنا عبر:</p>
+                    <ul style="padding-right:20px;margin-top:6px;">
+                        <li>• <strong>واتساب:</strong> <a href="https://wa.me/201229156909" style="color:var(--gold);">01229156909</a></li>
+                        <li>• <strong>الهاتف:</strong> 01229156909</li>
+                        <li>• <strong>البريد الإلكتروني:</strong> info@alwaha.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- سؤال 8 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>هل يوجد عروض وخصومات؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نعم، نقدم عروضاً وخصومات مستمرة على منتجاتنا. يمكنك متابعة قسم "العروض" في المتجر للاطلاع على أحدث التخفيضات. كما نقدم خصومات خاصة للعملاء الجدد والمتكررين.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 9 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>هل يمكنني تخصيص طلبي؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>نعم، يمكنك إضافة ملاحظات خاصة لكل منتج عند الطلب. مثلاً: "أريد مانجو ناضجة" أو "تفاح أخضر". سنبذل قصارى جهدنا لتلبية طلباتك.</p>
+                </div>
+            </div>
+
+            <!-- سؤال 10 -->
+            <div class="faq-item">
+                <div class="question" onclick="toggleFaq(this)">
+                    <span>كيف يمكنني الاستفادة من المطبخ الذكي؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="answer">
+                    <p>المطبخ الذكي هو أداة تساعدك على اكتشاف وصفات باستخدام المنتجات التي لديك. اختر المنتجات من القائمة، وسيقترح عليك النظام وصفات مناسبة مع طريقة التحضير وفيديوهات من يوتيوب.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top:10px;">
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للمتجر</a>
+        </div>
+    </div>
+
+    <script>
+        // تحميل الثيم المحفوظ
+        const savedTheme = localStorage.getItem('alwaha_theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            const isDark = document.documentElement.hasAttribute('data-theme');
+            document.documentElement.toggleAttribute('data-theme');
+            localStorage.setItem('alwaha_theme', isDark ? 'light' : 'dark');
+        });
+
+        // فتح/غلق السؤال
+        function toggleFaq(element) {
+            const item = element.closest('.faq-item');
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            // إغلاق جميع الأسئلة الأخرى (اختياري)
+            // allItems.forEach(el => {
+            //     if (el !== item) el.classList.remove('open');
+            // });
+            
+            item.classList.toggle('open');
+        }
+
+        // فتح أول سؤال تلقائياً
+        document.querySelector('.faq-item').classList.add('open');
+
+        // البحث في الأسئلة
+        function searchFaq() {
+            const query = document.getElementById('faqSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+            
+            items.forEach(item => {
+                const question = item.querySelector('.question span').textContent.toLowerCase();
+                const answer = item.querySelector('.answer').textContent.toLowerCase();
+                
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = 'block';
+                    if (query.length > 0) item.classList.add('open');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+                  </html> 
