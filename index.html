@@ -111,10 +111,6 @@
                 <span class="cat-icon">🏷️</span>
                 <h4 id="catOffersTitle">عروض</h4>
             </div>
-            <div class="category-card" data-target="smart-kitchen">
-                <span class="cat-icon">🧑‍🍳</span>
-                <h4 id="catKitchenTitle">المطبخ الذكي</h4>
-            </div>
         </div>
     </section>
 
@@ -147,30 +143,6 @@
             <h3 class="section-title" id="offersSubTitle" style="font-size:16px;color:var(--gold);"><i class="fas fa-tag"></i> العروض والخصومات</h3>
             <div class="products-grid" id="offersGrid"></div>
         </div>
-    </section>
-
-    <!-- ===== SMART KITCHEN ===== -->
-    <section class="section" id="smart-kitchen">
-        <h2 class="section-title" id="kitchenTitle"><i class="fas fa-utensils"></i> المطبخ الذكي</h2>
-        <p id="kitchenSub" style="color:#5a7a5a;font-size:15px;margin-bottom:12px;">اختر المنتجات التي لديك وسنقترح لك وصفات مناسبة</p>
-        
-        <div id="kitchenSelector" style="background:var(--bg-card);backdrop-filter:blur(10px);border-radius:12px;padding:16px;border:1px solid var(--border-color);margin-bottom:16px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-                <span style="font-weight:700;color:var(--primary);font-size:16px;"><i class="fas fa-box"></i> اختر المنتجات:</span>
-                <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                    <button onclick="selectAllKitchen()" style="padding:4px 14px;border-radius:30px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;font-family:'Tajawal',sans-serif;font-size:13px;">تحديد الكل</button>
-                    <button onclick="deselectAllKitchen()" style="padding:4px 14px;border-radius:30px;border:1px solid #ccc;background:transparent;color:#666;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:13px;">إلغاء الكل</button>
-                    <button onclick="loadCartProducts()" style="padding:4px 14px;border-radius:30px;border:1px solid var(--primary);background:var(--primary);color:white;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:13px;">من السلة</button>
-                </div>
-            </div>
-            <div id="kitchenProducts" style="display:flex;flex-wrap:wrap;gap:6px;max-height:120px;overflow-y:auto;padding:4px 0;"></div>
-        </div>
-        
-        <button onclick="findRecipes()" id="findRecipesBtn" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--primary-dark);border:none;padding:12px 30px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;box-shadow:0 4px 20px rgba(212,175,55,0.3);transition:var(--transition);width:100%;margin-bottom:16px;">
-            <i class="fas fa-search"></i> ابحث عن وصفات
-        </button>
-        
-        <div id="recipesResults" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:4px;"></div>
     </section>
 
     <!-- ===== OFFERS COUNTDOWN ===== -->
@@ -385,4 +357,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> 
+    </html> 
